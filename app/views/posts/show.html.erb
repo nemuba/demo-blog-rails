@@ -1,0 +1,38 @@
+<%= content_for :page_title, @post.title %>
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <h1 class="title">
+          <%= @post.title %>
+        </h1>
+        <h2 class="subtitle">
+          Created by <%= @post.user.email %>
+        </h2>
+        <div class="box">
+          <p>
+            <%= @post.content %>
+          </p>
+        </div>
+        <%= link_to 'Come Back', posts_path, class: "button is-danger is-rounded mt-3" %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="box">
+        <h3 class="subtitle">Comments <%= @post.comments.count %></h3>
+        <div class="container">
+          <div class="columns is-multiline">
+            <%= render @post.comments %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <h2 class="subtitle">Add Comment</h2>
+      <div class="box">
+        <%= render 'comment_form', post: @post if user_signed_in? %>
+        <%= link_to 'Login to comment', new_user_session_path, class: 'button is-primary is-rounded' unless user_signed_in? %>
+      </div>
+  </div>
+</section>

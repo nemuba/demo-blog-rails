@@ -1,0 +1,9 @@
+<%= content_for :page_title, "Index Blog Posts" %>
+<section class="section">
+  <div class="container is-small">
+    <h2 class="subtitle is-pulled-right">Total of the posts in blog: <%= @posts.count %></h2>
+  </div>
+</section>
+
+<%= render @posts %>
+

@@ -1,0 +1,22 @@
+<%= form_with model: [post, post.comments.build], action: :create do |form|%>
+          <div class="field">
+            <%= form.label :description, class:'label' %>
+            <div class="control">
+              <%= form.text_area :description, class:'textarea' %>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <%= form.hidden_field :post_id, class:'input' %>
+            </div>
+          </div>
+
+          <div class="control">
+            <%= form.hidden_field :user_id, value: current_user.id %>
+          </div>
+
+          <div class="control">
+            <%= form.submit 'Add', class: 'button is-primary is-rounded' %>
+          </div>
+        <% end %>

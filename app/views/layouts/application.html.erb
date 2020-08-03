@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <%= render 'shared/menu' %>
+    <% flash.each do |type, msg| %>
+      <div class="box mt-3 mx-3 py-3 px-3  <%= type.eql?('success') ? "has-background-success has-text-white" : "has-background-danger has-text-white" %>">
+        <p><%= msg %></p>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

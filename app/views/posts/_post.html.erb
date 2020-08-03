@@ -1,0 +1,16 @@
+
+<section class="section">
+  <div class="container">
+    <h1 class="title"><%= link_to post.title, post %></h1>
+    <h2 class="subtitle">
+      Created by <%= post.user.email %>
+    </h2>
+    <p><%= post.content %></p>
+    <br>
+    <% if user_signed_in? && current_user.id === post.user_id %>
+      <%= link_to 'Edit', edit_post_path(post), class: 'button is-success is-rounded' %>
+      <%= link_to 'Delete', post, method: :delete, class: 'button is-danger is-rounded', data:{confirm: "Tem certeza?"} %>
+    <% end %>
+    <span class="button is-info is-rounded">Comments: <%= post.comments.count %></span>
+  </div>
+</section>

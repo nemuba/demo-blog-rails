@@ -1,0 +1,36 @@
+<%= content_for :page_title, "Contact" %>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title">
+      Contact
+    </h2>
+    <h3 class="subtitle">
+      see plus
+    </h3>
+    
+    <div class="content">
+      <%= form_with model: Contact.new, local: true do |form| %>
+        <div class="field">
+          <%= form.label :name, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :name, class:'input', placeholder: 'Name' %>
+          </div>
+        </div>
+        
+        <div class="field">
+          <%= form.label :email, class: 'label' %>
+          <div class="control">
+            <%= form.email_field :email, class:'input', placeholder: 'Email' %>
+          </div>
+        </div>
+        
+        <div class="control">
+          <%= form.submit nil, class: "button #{css_class_btn(action_name)} mt-3 is-rounded" %>
+        </div>
+            
+      <% end %>
+    </div>
+    
+  </div>
+</section>
