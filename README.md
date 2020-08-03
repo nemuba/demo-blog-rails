@@ -1,24 +1,19 @@
-# README
+# Demo Blog
+![Header](header.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Foi desenvolvido um Blog simples e objetivo. O intuito desse projeto foi estudar o framework CSS Bulma e melhorar o conhecimento do framework Ruby on Rails, pois sabemos só aprendemos através da prática. 
 
-Things you may want to cover:
+Ferramentas (Gems) utilizadas:
 
-* Ruby version
+* Ruby on Rails
 
-* System dependencies
+* Sqlite3
 
-* Configuration
+* Bulma (Framework CSS)
 
-* Database creation
+* Devise
 
-* Database initialization
+Bons Estudos !
 
-* How to run the test suite
+Desenvolvido por: Alef O. de  Oliveira.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
