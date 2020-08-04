@@ -1,0 +1,10 @@
+$(document).ready(function(){
+  $('.show_post').on("ajax:success", function(){
+    //$('#messages').remove();
+    $('.app').html("<%= j render 'show' %>");
+  });
+
+   $('.show_post').on("ajax:error", function(e){
+    console.log(e.detail);
+   });
+})

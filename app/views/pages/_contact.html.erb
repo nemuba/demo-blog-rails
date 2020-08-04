@@ -10,7 +10,7 @@
     </h3>
     
     <div class="content">
-      <%= form_with model: Contact.new, local: true do |form| %>
+      <%= form_with model: Contact.new do |form| %>
         <div class="field">
           <%= form.label :name, class: 'label' %>
           <div class="control">
@@ -26,7 +26,7 @@
         </div>
         
         <div class="control">
-          <%= form.submit nil, class: "button #{css_class_btn(action_name)} mt-3 is-rounded" %>
+          <%= form.submit nil, class: "button #{css_class_btn(action_name)} mt-3 is-rounded"%>
         </div>
             
       <% end %>

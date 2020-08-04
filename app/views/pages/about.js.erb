@@ -1,0 +1,10 @@
+$(document).ready(function(){
+    $('#about_page').on("ajax:success", function(){
+        $('#home_page').removeClass('is-warning');
+        $('#contact_page').removeClass('is-warning');
+        $('#about_page').addClass('is-warning');
+        $('#messages').remove();
+        $('.app').html("<%= j render 'about' %>");
+    });
+    
+});

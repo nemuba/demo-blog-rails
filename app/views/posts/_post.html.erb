@@ -1,16 +1,20 @@
 
-<section class="section">
+<section class="section" id="post_<%= post.id%>">
   <div class="container">
-    <h1 class="title"><%= link_to post.title, post %></h1>
+    <h1 class="title"><%= link_to post.title, post, remote: true, class: 'show_post' %></h1>
     <h2 class="subtitle">
       Created by <%= post.user.email %>
     </h2>
     <p><%= post.content %></p>
     <br>
     <% if user_signed_in? && current_user.id === post.user_id %>
-      <%= link_to 'Edit', edit_post_path(post), class: 'button is-success is-rounded' %>
-      <%= link_to 'Delete', post, method: :delete, class: 'button is-danger is-rounded', data:{confirm: "Tem certeza?"} %>
+      <%= link_to 'Edit', edit_post_path(post), remote: true, 
+                                                class: 'button is-success is-rounded edit_post' %>
+      <%= link_to 'Delete', post, method: :delete, 
+                                  class: 'button is-danger is-rounded delete_post', 
+                                  data:{confirm: "Tem certeza?", remote: true} %>
     <% end %>
     <span class="button is-info is-rounded">Comments: <%= post.comments.count %></span>
+    <span class="button is-primary is-rounded">Created in :<%= time_ago_in_words(post.created_at) %> ago.</span>
   </div>
 </section>

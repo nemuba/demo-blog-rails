@@ -3,11 +3,15 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      flash[:success] = "Contact sent successfully"
-      redirect_to contact_path
+      respond_to do |format|
+        format.html { redirect_to root_path, notice:  "Contact sent successfully" }
+        format.js
+      end
     else
-      flash[:error] = "Error registering contact"
-      redirect_to contact_path
+      respond_to do |format|
+        format.html { redirect_to root_path, notice:  "Error registering contact" }
+        format.js
+      end
     end
   end
 

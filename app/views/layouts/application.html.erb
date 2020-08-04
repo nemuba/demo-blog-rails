@@ -4,18 +4,26 @@
     <title>DemoBlog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# javascript_pack_tag 'application' %>
   </head>
 
   <body>
+
     <%= render 'shared/menu' %>
+
     <% flash.each do |type, msg| %>
-      <div class="box mt-3 mx-3 py-3 px-3  <%= !type.eql?('error') ? "has-background-success has-text-white" : "has-background-danger has-text-white" %>">
+      <div id="messages" class="box mt-3 mx-3 py-3 px-3  <%= !type.eql?('error') ? "has-background-success has-text-white" : "has-background-danger has-text-white" %>">
         <p><%= msg %></p>
       </div>
     <% end %>
-    <%= yield %>
+
+    <div class="app">
+      <%= yield %>
+    </div>
+
   </body>
 </html>

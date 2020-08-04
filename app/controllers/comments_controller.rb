@@ -3,14 +3,34 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    if @comment.save
-      flash[:success] = "Comment successfully created"
-      redirect_to @post
-    else
-      flash[:error] = "Something went wrong"
-      redirect_to @post
+   
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @post, notice: "Comment successfully created", status: :created }
+        format.js 
+      else
+        format.html { redirect_to @post, notice: "Something went wrong" }
+        format.js
+        @errors = @comment.errors.full_messages
+      end
     end
   end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      respond_to do |format|
+        format.html { redirect_to @post, notice: "Was deleted with success" }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to @post, notice: "Something went wrong." }
+        format.js
+      end
+    end
+  end
+  
 
   private
 

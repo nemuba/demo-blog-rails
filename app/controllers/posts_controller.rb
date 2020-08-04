@@ -17,11 +17,15 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      flash[:success] = "Post successfully created"
-      redirect_to posts_path
+      respond_to do |format|
+        format.html { redirect_to @post, notice: "Created with success." }
+        format.js
+      end
     else
-      flash[:error] = "Something went wrong"
-      render 'new'
+      respond_to do |format|
+        format.html { redirect_to @post, notice: "Something went wrong." }
+        format.js
+      end
     end
   end
   
@@ -30,21 +34,29 @@ class PostsController < ApplicationController
 
   def update
       if @post.update(post_params)
-        flash[:success] = "Post was successfully updated"
-        redirect_to @post
+        respond_to do |format|
+          format.html { redirect_to @post, notice: "Updated with success." }
+          format.js
+        end
       else
-        flash[:error] = "Something went wrong"
-        render 'edit'
+        respond_to do |format|
+          format.html { redirect_to @post, notice: "Something went wrong." }
+          format.js
+        end
       end
   end
   
   def destroy
     if @post.destroy
-      flash[:success] = 'Post was successfully deleted.'
-      redirect_to posts_url
+      respond_to do |format|
+        format.html { redirect_to @post, notice: "Deleted with success." }
+        format.js
+      end
     else
-      flash[:error] = 'Something went wrong'
-      redirect_to posts_url
+      respond_to do |format|
+        format.html { redirect_to @post, notice: "Something went wrong." }
+        format.js
+      end
     end
   end
 

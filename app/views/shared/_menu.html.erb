@@ -6,16 +6,31 @@
           <h1 class="title">
             <%= yield :page_title %>            
           </h1>
-          <%= link_to "Home", root_path, class: "button is-link is-rounded mt-3 #{action_name == 'index' ? 'is-warning' : ''}" %>         
-          <%= link_to "About", about_path, class: "button is-link is-rounded mt-3 #{action_name == 'about' ? 'is-warning' : ''}" %>   
-          <%= link_to "Contact", contact_path, class: "button is-link is-rounded mt-3 #{action_name == 'contact' ? 'is-warning' : ''}" %>               
+          <%= link_to "Home", root_path, id:'home_page', 
+                                        class: "button is-link is-rounded mt-3 #{action_name == 'index' ? 'is-warning' : ''}" %>         
+          <%= link_to "About", about_path, data: {remote: true, type: :json}, 
+                                          id: 'about_page', 
+                                          class: "button is-link is-rounded mt-3 #{action_name == 'about' ? 'is-warning' : ''}" %>   
+          <%= link_to "Contact", contact_path, data: {remote: true, type: :json},  
+                                              id: 'contact_page', 
+                                              class: "button is-link is-rounded mt-3 #{action_name == 'contact' ? 'is-warning' : ''}" %>               
+          
+          
         </div>
+        
         <div class="column">
           <h1 class="is-pulled-right">
-            <%= link_to "New Post", new_post_path, class: 'button is-primary is-rounded' if user_signed_in? %>
+            <%= link_to "New Post", new_post_path, data: {remote: true, type: :json}, id: 'new_post', class: 'button is-primary is-rounded' if user_signed_in? %>
             <%= link_to "Login", new_user_session_path, class: 'button is-primary is-rounded' unless user_signed_in? %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'button is-danger is-rounded' if user_signed_in? %>
           </h1>
+
+          <% if user_signed_in? %>
+            <h3 class="is-pulled-right mt-3 mr-3">
+              <%= current_user.email %>
+            </h3>
+          <% end %>
+
         </div>
       </div>
     </div>

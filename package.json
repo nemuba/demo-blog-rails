@@ -1,5 +1,16 @@
 {
   "name": "demo_blog",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/ujs": "^6.0.3-2",
+    "@rails/webpacker": "5.1.1",
+    "channels": "^0.0.4",
+    "jquery": "^3.5.1",
+    "rails-erb-loader": "^5.5.2",
+    "toastify-js": "^1.9.0",
+    "turbolinks": "^5.2.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0"
+  }
 }

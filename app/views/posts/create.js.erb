@@ -1,0 +1,18 @@
+$(document).ready(function(){
+  $('form[data-remote]').on('ajax:success', function(){
+    $('.app').html("<%= j render 'show', post: @post %>");
+    Toastify({
+      text: "Created with success",
+      offset: {
+        x: 100, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+        y: 150 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      },
+      backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+      className: "info",
+    }).showToast();
+  });
+
+  $('form[data-remote]').on('ajax:error', function(){
+    alert('Something went wrong.');
+  });
+});
