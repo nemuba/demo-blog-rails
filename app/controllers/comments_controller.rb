@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
    
     respond_to do |format|
       if @comment.save
+        # CommentMailer.with(post: @post).send.deliver_now
         format.html { redirect_to @post, notice: "Comment successfully created", status: :created }
         format.js 
       else
