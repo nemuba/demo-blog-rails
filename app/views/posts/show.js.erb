@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $('.show_post').on("ajax:success", function(){
-    //$('#messages').remove();
+    $('#messages').remove();
     $('.app').html("<%= j render 'show' %>");
   });
 
