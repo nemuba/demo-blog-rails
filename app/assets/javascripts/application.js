@@ -49,6 +49,8 @@
 //= require third_party/spell_checker.min.js
 //= require languages/pt_pt.js
 //= require jquery
+//= require i18n
+//= require i18n/translations
 //= require toastify-js/src/toastify
 //= require activestorage
 //= require turbolinks

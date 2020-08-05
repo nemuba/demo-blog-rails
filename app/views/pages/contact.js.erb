@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $('#contact_page').on("ajax:success", function (e, data, status, xhr){
+        $('#root_page').text('<%= t("page.title.contact") %>');
         $('#home_page').removeClass('is-warning');
         $('#about_page').removeClass('is-warning');
         $('#contact_page').addClass('is-warning');

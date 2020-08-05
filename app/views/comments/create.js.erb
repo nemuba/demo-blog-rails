@@ -3,18 +3,25 @@ $(document).ready(function(){
     <% if !@comment.errors.any? %>
       $("#comments").html("<%= j render @post.comments %>");
       $('#comment_description').prop('value','');
-      $('#comments_count').html("Comments <%= @post.comments.count %>");
+      $('#comments_count').html('<%= "#{t("page.title.comments")} #{@post.comments.count}" %>');
+      $(".label").html("Description").removeClass('has-text-danger');
+
+      Toastify({
+        text: I18n.t('messages.success.create',{model: "Comentário"}),
+        position: "center",
+        gravity: "top",
+        backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+      }).showToast();
       
-      $(".label").html("Description").removeClass('has-text-danger')
+      $('.delete_comment').text(I18n.t('page.links.delete', {model: "Comentário"}));
     <% else %>
       $(".label").html("<%= j @errors[0] %>").addClass('has-text-danger');
     <% end %>
   }); 
    
   $('#comment_form').on('ajax:error', function(e){
-    console.log(e);
     Toastify({
-      text: "Something went wrong.",
+      text: I18n.t('messages.error.create',{model: "Comentário"}),
       position: "center",
       gravity: "top",
       backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",

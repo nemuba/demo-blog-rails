@@ -6,17 +6,19 @@
       <div class="column">
         <h1 class="title">
           <%= @post.title %>
+          <%= link_to t('page.links.comeback'), posts_path, id: 'back_page', remote: true, class: "button is-danger is-rounded mt-3 is-pulled-right" %>
         </h1>
         <h2 class="subtitle">
           <%= t('page.subtitle.autor',autor: @post.user.email) %>
-        </h2>
-        <span class="button is-primary is-rounded mb-3"><%= time_ago_in_words(@post.created_at) %></span>
+        </h2>        
         <div class="box">
           <p>
+            <span class="mb-3"><%= t('page.subtitle.created',time: time_ago_in_words(@post.created_at)) %></span>
+            <hr/>
             <%= @post.content.html_safe %>
           </p>
         </div>
-        <%= link_to t('page.links.comeback'), posts_path, id: 'back_page', remote: true, class: "button is-danger is-rounded mt-3" %>
+        
       </div>
     </div>
     <div class="column">
@@ -33,7 +35,7 @@
       <h2 class="subtitle"><%= t('page.title.add_comment') %></h2>
       <div class="box" id="box_comment">
         <%= render 'comment_form', post: @post if user_signed_in? %>
-        <%= link_to 'Login to comment', new_user_session_path, class: 'button is-primary is-rounded' unless user_signed_in? %>
+        <%= link_to t('page.links.login_to_comment'), new_user_session_path, class: 'button is-primary is-rounded' unless user_signed_in? %>
       </div>
   </div>
 </section>

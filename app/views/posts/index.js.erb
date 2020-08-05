@@ -1,5 +1,6 @@
 $(document).ready(function(){
   $('#back_page').on("ajax:success", function(){
+    $('#root_page').text('<%= t("page.title.index") %>');
     $('#home_page').addClass('is-warning');
     $('#contact_page').removeClass('is-warning');
     $('#about_page').removeClass('is-warning');
@@ -8,6 +9,7 @@ $(document).ready(function(){
   });
 
   $('#root_page').on("ajax:success", function(){
+    $('#root_page').text('<%= t("page.title.index") %>');
     $('#home_page').addClass('is-warning');
     $('#contact_page').removeClass('is-warning');
     $('#about_page').removeClass('is-warning');

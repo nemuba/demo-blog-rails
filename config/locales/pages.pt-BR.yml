@@ -5,13 +5,14 @@ pt-BR:
       about: Sobre
       contact: Contato
       new_post: Novo Post
-      login: Entrar
+      login: Entrar      
       logout: Sair
   page:
     links:
       edit: 'Editar'
       delete: 'Excluir %{model}'
       comeback: 'Voltar'
+      login_to_comment: 'Entrar para comentar'
     title:
       comments: 'Comentários'
       add_comment: 'Adicionar comentário'
@@ -26,3 +27,4 @@ pt-BR:
       contact: 'Saiba mais'
       about: 'Demo Blog'
       autor: 'Criado por %{autor}'
+      created: 'Criado há %{time} atrás'

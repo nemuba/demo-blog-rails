@@ -4,8 +4,7 @@
     <% if comment.user.id == current_user.id %>
     <%= link_to t('page.links.delete', model: comment.model_name), post_comment_path(@post, comment), 
                                                       method: :delete,
-                                                      id: 'delete_comment',
-                                                      class: 'button is-warning is-rounded is-small', 
+                                                      class: 'button is-warning is-rounded is-small delete_comment', 
                                                       data: {remote: true} %>
   <% end %>  
   <% end %>

@@ -1,7 +1,9 @@
 $(document).ready(function(){
   $('.show_post').on("ajax:success", function(){
     $('#messages').remove();
+    $('#root_page').text('<%= t("page.title.show", model: @post.model_name) %>');
     $('.app').html("<%= j render 'show' %>");
+    $('.delete_comment').text(I18n.t('page.links.delete', {model: "Comentário"}));
   });
 
    $('.show_post').on("ajax:error", function(e){

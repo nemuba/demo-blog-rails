@@ -1,5 +1,6 @@
 $(document).ready(function(){
   $('#new_post').on('ajax:success', function(){
+    $('#root_page').text('<%= t("page.title.new", model: @post.model_name) %>');
     $('.app').html("<%= j render 'new' %>");
     new FroalaEditor('#editor',{
       language: 'pt_pt'

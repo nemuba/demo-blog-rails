@@ -1,10 +1,13 @@
 
 <section class="section" id="post_<%= post.id%>">
   <div class="container box">
-    <h1 class="title"><%= link_to post.title, post, remote: true, class: 'show_post' %></h1>
+    <h1 class="title">
+      <%= link_to post.title, post, remote: true, class: 'show_post' %>
+    </h1>
     <h3 class="subtitle">
-      <%= t('page.subtitle.autor',autor: post.user.email) %>
+      <%= t('page.subtitle.autor',autor: post.user.email) %>      
     </h3>
+    <span class="my-5 is-pulled-right"><%= t('page.subtitle.created',time: time_ago_in_words(post.created_at)) %></span>    
     <p><%= post.content.html_safe %></p>
     <% if user_signed_in? && current_user.id === post.user_id %>
       <%= link_to t('page.links.edit'), edit_post_path(post), 
@@ -16,7 +19,6 @@
                                         class: 'button is-danger is-rounded delete_post mt-3', 
                                         data:{confirm: "Tem certeza?", remote: true} %>
     <% end %>
-    <span class="button is-info is-rounded mt-3"><%= "#{t('page.title.comments')} #{post.comments.count}" %></span>
-    <span class="mx-5 my-3 is-pulled-right"><%= time_ago_in_words(post.created_at) %></span>
+    <span class="button is-info is-rounded mt-3"><%= "#{t('page.title.comments')} #{post.comments.count}" %></span>    
   </div>
 </section>

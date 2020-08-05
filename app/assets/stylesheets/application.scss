@@ -40,7 +40,11 @@
 section:nth-child(1){
   margin-top: 20vh;
 }
-
+@media(max-width: 600px){
+  section:nth-child(1){
+    margin-top: 40vh;
+  } 
+}
 #footer{
   margin-top: 35vh;
 }

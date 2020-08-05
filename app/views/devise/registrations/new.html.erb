@@ -1,10 +1,10 @@
-<%= content_for :page_title, "Sign up" %>
+<%= content_for :page_title, t('devise.pages.title.sign_up') %>
 <section class="section">
   <div class="container">
-    <div class="box">
-      <div class="columns">
-        <div class="column is-offset-1 is-four-fifths">
-          <h2 class="title">Sign up</h2>
+    <div class="columns">
+      <div class="column is-offset-2 is-three-fifths">
+        <div class="box has-background-white-ter">
+          <h2 class="title"><%= t('devise.pages.subtitle.sign_up') %></h2>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -15,9 +15,6 @@
 
             <div class="field">
               <%= f.label :password, class: 'label' %>
-              <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %><br />
               <%= f.password_field :password, autocomplete: "new-password", class: 'input' %>
             </div>
 
@@ -27,8 +24,7 @@
             </div>
 
             <div class="control">
-              <%= f.submit "Sign up", class:'button is-primary is-rounded' %>
-              
+              <%= f.submit t('devise.links.sign_up'), class:'button is-primary is-rounded' %>
             </div>
           <% end %>
 
