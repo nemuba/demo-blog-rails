@@ -9,7 +9,7 @@
   <div class="field">
     <%= form.label :content, class: 'label' %>
     <div class="control">
-      <%= form.text_area :content, class:'textarea', placeholder: 'Content ...' %>
+      <%= form.text_area :content, id: 'editor', class:'textarea', placeholder: 'Content ...' %>
     </div>
   </div>
   <div class="field">
@@ -19,6 +19,7 @@
   </div>
    
   <div class="control">
+    <%= link_to t('page.links.comeback'), posts_path, id: 'back_page', remote: true, class: "button is-danger is-rounded mt-3" %>
     <%= form.submit nil, class: "button #{css_class_btn(action_name)} mt-3 is-rounded" %>
   </div>
       

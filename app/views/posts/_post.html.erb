@@ -1,20 +1,22 @@
 
 <section class="section" id="post_<%= post.id%>">
-  <div class="container">
+  <div class="container box">
     <h1 class="title"><%= link_to post.title, post, remote: true, class: 'show_post' %></h1>
-    <h2 class="subtitle">
-      Created by <%= post.user.email %>
-    </h2>
-    <p><%= post.content %></p>
-    <br>
+    <h3 class="subtitle">
+      <%= t('page.subtitle.autor',autor: post.user.email) %>
+    </h3>
+    <p><%= post.content.html_safe %></p>
     <% if user_signed_in? && current_user.id === post.user_id %>
-      <%= link_to 'Edit', edit_post_path(post), remote: true, 
-                                                class: 'button is-success is-rounded edit_post' %>
-      <%= link_to 'Delete', post, method: :delete, 
-                                  class: 'button is-danger is-rounded delete_post', 
-                                  data:{confirm: "Tem certeza?", remote: true} %>
+      <%= link_to t('page.links.edit'), edit_post_path(post), 
+                                        remote: true, 
+                                        class: 'button is-success is-rounded edit_post mt-3' %>
+
+      <%= link_to t('page.links.delete', model: post.model_name), post, 
+                                        method: :delete, 
+                                        class: 'button is-danger is-rounded delete_post mt-3', 
+                                        data:{confirm: "Tem certeza?", remote: true} %>
     <% end %>
-    <span class="button is-info is-rounded">Comments: <%= post.comments.count %></span>
-    <span class="button is-primary is-rounded">Created in :<%= time_ago_in_words(post.created_at) %> ago.</span>
+    <span class="button is-info is-rounded mt-3"><%= "#{t('page.title.comments')} #{post.comments.count}" %></span>
+    <span class="mx-5 my-3 is-pulled-right"><%= time_ago_in_words(post.created_at) %></span>
   </div>
 </section>

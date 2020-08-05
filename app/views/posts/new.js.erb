@@ -1,6 +1,9 @@
 $(document).ready(function(){
   $('#new_post').on('ajax:success', function(){
     $('.app').html("<%= j render 'new' %>");
+    new FroalaEditor('#editor',{
+      language: 'pt_pt'
+    });    
   });
 });
 

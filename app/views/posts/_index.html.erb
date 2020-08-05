@@ -1,7 +1,9 @@
-<%= content_for :page_title, "Index Blog Posts" %>
+<%= content_for :page_title, t('page.title.index') %>
 <section class="section">
   <div class="container is-small">
-    <h2 class="subtitle is-pulled-right" id="total_post">Total of the posts in blog: <%= @posts.count %></h2>
+    <h2 class="subtitle is-pulled-right" id="total_post">
+      <%= t('page.subtitle.total_post', count: @posts.count) %>
+    </h2>
   </div>
 </section>
 

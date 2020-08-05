@@ -2,6 +2,9 @@ $(document).ready(function(){
   $('.edit_post').on('ajax:success', function(){
     $('#messages').remove();
     $('.app').html("<%= j render 'edit' %>");
+    new FroalaEditor('#editor',{
+      language: 'pt_pt'
+    });    
   });
 });
 

@@ -1,7 +1,10 @@
-<%= content_for :page_title, @post.title %>
+<%= content_for :page_title, t('page.title.edit', model: @post.title) %>
 
 <section class="section">
   <div class="container">
+    <h2 class="title">
+      <%= t('page.title.edit', model: @post.model_name) %>      
+    </h2>
     <%= render 'form', post: @post %>    
   </div>
 </section>

@@ -1,0 +1,28 @@
+pt-BR:
+  menu:
+    links:
+      home: Home
+      about: Sobre
+      contact: Contato
+      new_post: Novo Post
+      login: Entrar
+      logout: Sair
+  page:
+    links:
+      edit: 'Editar'
+      delete: 'Excluir %{model}'
+      comeback: 'Voltar'
+    title:
+      comments: 'Comentários'
+      add_comment: 'Adicionar comentário'
+      about: 'Sobre'
+      contact: 'Contato'
+      index: 'Demo Blog'
+      show: '%{model}'
+      edit: 'Editar %{model}'
+      new: 'Criar %{model}'
+    subtitle:
+      total_post: 'Total de Posts do Blog: %{count}'
+      contact: 'Saiba mais'
+      about: 'Demo Blog'
+      autor: 'Criado por %{autor}'

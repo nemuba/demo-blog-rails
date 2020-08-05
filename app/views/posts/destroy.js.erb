@@ -4,24 +4,18 @@ $(document).ready(function(){
     $('#total_post').text("Total of the posts in blog: <%= Post.count %>")
     Toastify({
       text: "Post was deleted with successfully",
-      offset: {
-        x: 100, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-        y: 150 // vertical axis - can be a number or a string indicating unity. eg: '2em'
-      },
-      backgroundColor: "linear-gradient(to right, #ff0000, #ff0087)",
-      className: "has-background-danger",
+      position: "center",
+      gravity: "top",
+      backgroundColor: "linear-gradient(to right, #ff0000, #ff0087)"
     }).showToast();
   });
 
   $('.delete_post').on('ajax:error', function(){
     Toastify({
       text: "Something went wrong.",
-      offset: {
-        x: 100, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-        y: 150 // vertical axis - can be a number or a string indicating unity. eg: '2em'
-      },
-      backgroundColor: "linear-gradient(to right, #ff0099, #ff0000)",
-      className: "has-background-danger",
+      position: "center",
+      gravity: "top",
+      backgroundColor: "linear-gradient(to right, #ff0099, #ff0000)"
     }).showToast();
   });
 })

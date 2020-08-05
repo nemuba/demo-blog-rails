@@ -8,20 +8,20 @@
           <%= @post.title %>
         </h1>
         <h2 class="subtitle">
-          Created by <%= @post.user.email %>
+          <%= t('page.subtitle.autor',autor: @post.user.email) %>
         </h2>
-        <span class="button is-primary is-rounded mb-3">Created <%= time_ago_in_words(@post.created_at) %> ago.</span>
+        <span class="button is-primary is-rounded mb-3"><%= time_ago_in_words(@post.created_at) %></span>
         <div class="box">
           <p>
-            <%= @post.content %>
+            <%= @post.content.html_safe %>
           </p>
         </div>
-        <%= link_to 'Come Back', posts_path, id: 'back_page', remote: true, class: "button is-danger is-rounded mt-3" %>
+        <%= link_to t('page.links.comeback'), posts_path, id: 'back_page', remote: true, class: "button is-danger is-rounded mt-3" %>
       </div>
     </div>
     <div class="column">
       <div class="box">
-        <h3 class="subtitle" id="comments_count">Comments <%= @post.comments.count %></h3>
+        <h3 class="subtitle" id="comments_count"><%= "#{t('page.title.comments')} #{@post.comments.count}" %></h3>
         <div class="container">
           <div class="columns is-multiline" id="comments">
             <%= render @post.comments %>
@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="column">
-      <h2 class="subtitle">Add Comment</h2>
+      <h2 class="subtitle"><%= t('page.title.add_comment') %></h2>
       <div class="box" id="box_comment">
         <%= render 'comment_form', post: @post if user_signed_in? %>
         <%= link_to 'Login to comment', new_user_session_path, class: 'button is-primary is-rounded' unless user_signed_in? %>

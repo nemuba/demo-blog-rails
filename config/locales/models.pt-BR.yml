@@ -1,0 +1,40 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: 'Usuário'
+        other: 'Usuários'
+      post:
+        one: 'Post'
+        other: 'Posts'
+      contact:
+        one: 'Contato'
+        other: 'Contatos'
+      comment:
+        one: 'Comentário'
+        other: 'Comentários'
+    attributes:
+      user:
+        id: '#'
+        email: 'Email'
+        password: 'Senha'
+        password_confirmation: 'Confirmar senha'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'
+      post:
+        id: '#'
+        title: 'Titulo'
+        content: 'Descrição'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'
+      comment:
+        id: '#'
+        description: 'Descrição'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'
+      contact:
+        id: '#'
+        name: 'Nome'
+        email: 'Email'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'

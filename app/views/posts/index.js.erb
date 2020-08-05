@@ -1,5 +1,17 @@
 $(document).ready(function(){
   $('#back_page').on("ajax:success", function(){
+    $('#home_page').addClass('is-warning');
+    $('#contact_page').removeClass('is-warning');
+    $('#about_page').removeClass('is-warning');
+    $('#messages').remove();
+    $('.app').html("<%= j render 'index' %>");
+  });
+
+  $('#root_page').on("ajax:success", function(){
+    $('#home_page').addClass('is-warning');
+    $('#contact_page').removeClass('is-warning');
+    $('#about_page').removeClass('is-warning');
+    $('#messages').remove();
     $('.app').html("<%= j render 'index' %>");
   })
 })
