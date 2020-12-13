@@ -1,4 +1,4 @@
-<nav class="navbar is-fixed-top hero is-small is-white is-bold">
+<nav class="navbar hero is-small is-info is-bold">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-multiline is-mobile">
@@ -7,7 +7,8 @@
             <%= link_to yield(:page_title), root_path, remote: true, id: 'root_page' %>            
           </h1>
           <%= link_to t('menu.links.home'), root_path, id:'home_page', 
-                                        class: "button is-link is-rounded mt-3 #{action_name == 'index' ? 'is-warning' : ''}" %>         
+                                        class: "button is-link is-rounded mt-3 #{action_name == 'index' ? 'is-warning' : ''}",
+                                        data: { remote: true} %>         
           <%= link_to t('menu.links.about'), about_path, data: {remote: true, type: :json}, 
                                           id: 'about_page', 
                                           class: "button is-link is-rounded mt-3 #{action_name == 'about' ? 'is-warning' : ''}" %>   

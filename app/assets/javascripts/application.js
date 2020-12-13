@@ -53,6 +53,6 @@
 //= require i18n/translations
 //= require toastify-js/src/toastify
 //= require activestorage
-//# require turbolinks
+//= require turbolinks
 //= require_tree .
 

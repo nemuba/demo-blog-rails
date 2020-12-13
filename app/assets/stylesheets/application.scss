@@ -16,9 +16,9 @@
 @import "bulma";
 @import "toastify-js/src/toastify.css";
 @import "froala_editor.min";
- @import "froala_style.min";
+@import "froala_style.min";
 
- @import 'plugins/char_counter.min.css';
+@import 'plugins/char_counter.min.css';
 @import 'plugins/code_view.min.css';
 @import 'plugins/colors.min.css';
 @import 'plugins/emoticons.min.css';
@@ -36,13 +36,14 @@
 @import 'third_party/embedly.min.css';
 @import 'third_party/image_tui.min.css';
 @import 'third_party/spell_checker.min.css';
+@import "font-awesome";
 
 section:nth-child(1){
-  margin-top: 20vh;
+  margin-top: 10vh;
 }
 @media(max-width: 600px){
   section:nth-child(1){
-    margin-top: 40vh;
+    margin-top: 30vh;
   } 
 }
 #footer{
