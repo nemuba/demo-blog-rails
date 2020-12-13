@@ -1,0 +1,10 @@
+$(document).ready(function() {
+  $("a.like[data-remote='true']").on('ajax:success', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    $(e.currentTarget).hide();
+    $(e.target).parent().prepend("<%= j link_to 'DisLike', post_like_path(@post,like_id(@post.id)), method: :delete, remote: true, class: 'button is-danger dislike is-rounded mt-3' if liked?(@post.id) %>");
+    $(e.target).parent().children('.likes').html("<%= j 'Likes '.concat(@post.likes.count.to_s) %>")
+    $(e.currentTarget).remove();
+  });
+});
