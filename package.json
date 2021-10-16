@@ -2,6 +2,9 @@
   "name": "demo_blog",
   "private": true,
   "dependencies": {
+    "ansi-regex": "^5.0.1",
+    "glob-parent": "^5.1.2",
+    "set-value": "^4.0.1",
     "toastify-js": "^1.9.0"
   },
   "devDependencies": {
