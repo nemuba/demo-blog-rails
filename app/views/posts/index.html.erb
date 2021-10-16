@@ -2,3 +2,13 @@
 
 <%= render @posts %>
 
+<% unless @posts.present? %>
+  <section class="container is-larger mb-3">
+    <div class="box">
+      <h1 class="title">Não há nenhum post no momento</h1>
+      <p>
+        <%= link_to 'Criar post', new_post_path, data: {remote: true, type: :json}, class: 'button is-primary is-rounded new_post' if user_signed_in? %>
+      </p>
+    </div>
+  </section>
+<% end %>
